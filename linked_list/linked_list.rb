@@ -10,6 +10,8 @@ class Node
 end
 
 class LinkedList
+  attr_reader :head, :tail, :length
+
   def initialize(value)
     node =  Node.new(value)
     @head = node
