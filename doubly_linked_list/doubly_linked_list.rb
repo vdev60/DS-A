@@ -166,4 +166,10 @@ class DoublyLinkedList
     @length -= 1
     temp
   end
+
+  def swap_first_last
+    return if @head == nil || @head == @tail
+  
+    @tail.data, @head.data = @head.data, @tail.data
+  end
 end
