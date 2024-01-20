@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'pry'
 class Node
   attr_accessor :next, :data, :prev
 
@@ -26,6 +26,17 @@ class DoublyLinkedList
       p current.data
       current = current.next
     end
+  end
+
+  # add something like this    nil <-  1123  -> <-  2 -> <-  3  <->  4  <-> nil
+  def pretty_print
+    current = @head
+    print " nil "
+    while current
+      print " <- #{current.data} -> " 
+      current = current.next
+    end
+    print " nil \n"
   end
 
   def append(value)
@@ -171,5 +182,18 @@ class DoublyLinkedList
     return if @head == nil || @head == @tail
   
     @tail.data, @head.data = @head.data, @tail.data
+  end
+
+  def reverse
+    current_node = @head
+    while current_node
+      temp_next = current_node.next
+      current_node.next = current_node.prev
+      current_node.prev = temp_next
+      current_node = temp_next
+    end
+
+    @head, @tail = @tail, @head
+    self
   end
 end
