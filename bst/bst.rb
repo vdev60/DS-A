@@ -14,4 +14,32 @@ class BinarySearchTree
   def initialize
     @root = nil
   end
+
+  def insert(value)
+    node = Node.new(value)
+
+    unless @root
+      @root = node
+      return true
+    end
+
+    temp = @root
+    loop do
+      return false if value == temp.value
+
+      if value < temp.value
+        if temp.left.nil?
+          temp.left = node
+          return true
+        end
+        temp = temp.left
+      else
+        if temp.right.nil?
+          temp.right = node
+          return true
+        end
+        temp = temp.right
+      end
+    end
+  end
 end
