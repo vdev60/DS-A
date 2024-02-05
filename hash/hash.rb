@@ -33,4 +33,16 @@ class HashTable
       return value if k == key
     end
   end
+
+  def keys
+    keys_list = []
+    @data_map.each do |i|
+      next if i.nil?
+
+      i.each do |k, _v|
+        keys_list.push(k)
+      end
+    end
+    keys_list
+  end
 end
