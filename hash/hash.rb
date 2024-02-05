@@ -18,4 +18,10 @@ class HashTable
       puts "#{k} : #{@data_map[k]}"
     end
   end
+
+  def set_item(key, value)
+    index = hash(key)
+    @data_map[index] = [] if @data_map[index].nil?
+    @data_map[index].push([key, value])
+  end
 end
