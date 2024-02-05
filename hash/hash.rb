@@ -24,4 +24,13 @@ class HashTable
     @data_map[index] = [] if @data_map[index].nil?
     @data_map[index].push([key, value])
   end
+
+  def get_item(key)
+    index = hash(key)
+    return nil if @data_map[index].nil?
+
+    @data_map[index].each do |k, value|
+      return value if k == key
+    end
+  end
 end
