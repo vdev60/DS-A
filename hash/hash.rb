@@ -12,4 +12,10 @@ class HashTable
     end
     my_hash
   end
+
+  def print_data_map
+    @data_map.each_index do |k|
+      puts "#{k} : #{@data_map[k]}"
+    end
+  end
 end
